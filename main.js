@@ -40,31 +40,27 @@ function animation() {
 
 
 function condition(b, y) {
-    if ((b === "http://127.0.0.1:5500/image/rock2.png" && y === "http://127.0.0.1:5500/image/rock.png") ||
-        (b === "http://127.0.0.1:5500/image/paper2.png" && y === "http://127.0.0.1:5500/image/paper.png") ||
-        (b === "http://127.0.0.1:5500/image/scissors2.png" && y === "http://127.0.0.1:5500/image/scissors.png")) {
+    if ((b === "image/rock2.png" && y === "image/rock.png") ||
+        (b === "image/paper2.png" && y === "image/paper.png") ||
+        (b === "image/scissors2.png" && y === "image/scissors.png")) {
         massage.style.display = "flex";
         textMass.innerText = "Equal";
         textMass.style.color = "black";
     }
-    if ((b === "http://127.0.0.1:5500/image/rock2.png" && y === "http://127.0.0.1:5500/image/paper.png") ||
-        (b === "http://127.0.0.1:5500/image/paper2.png" && y === "http://127.0.0.1:5500/image/scissors.png") ||
-        (b === "http://127.0.0.1:5500/image/scissors2.png" && y === "http://127.0.0.1:5500/image/rock.png")) {
+    if ((b === "image/rock2.png" && y === "image/paper.png") ||
+        (b === "image/paper2.png" && y === "image/scissors.png") ||
+        (b === "image/scissors2.png" && y === "image/rock.png")) {
         massage.style.display = "flex";
         textMass.innerText = "You Win";
         textMass.style.color = "green";
     }
-    if ((b === "http://127.0.0.1:5500/image/rock2.png" && y === "http://127.0.0.1:5500/image/scissors.png") ||
-        (b === "http://127.0.0.1:5500/image/paper2.png" && y === "http://127.0.0.1:5500/image/rock.png") ||
-        (b === "http://127.0.0.1:5500/image/scissors2.png" && y === "http://127.0.0.1:5500/image/paper.png")) {
+    if ((b === "image/rock2.png" && y === "image/scissors.png") ||
+        (b === "image/paper2.png" && y === "image/rock.png") ||
+        (b === "image/scissors2.png" && y === "image/paper.png")) {
         massage.style.display = "flex";
         textMass.innerText = "You Lose";
         textMass.style.color = "red";
     }
-
-
-
-
 }
 
 rock.addEventListener("click", function() {
@@ -72,16 +68,17 @@ rock.addEventListener("click", function() {
     setTimeout(() => {
         randomSelect();
         you.src = "image/rock.png";
-        condition(bot.src, you.src);
+        condition(bot.getAttribute("src"), you.getAttribute("src"));
     }, 3600);
 
+    console.log()
 });
 paper.addEventListener("click", function() {
     animation();
     setTimeout(() => {
         randomSelect();
         you.src = "image/paper.png";
-        condition(bot.src, you.src);
+        condition(bot.getAttribute("src"), you.getAttribute("src"));
     }, 3600);
 
 });
@@ -90,7 +87,7 @@ scissors.addEventListener("click", function() {
     setTimeout(() => {
         randomSelect();
         you.src = "image/scissors.png";
-        condition(bot.src, you.src);
+        condition(bot.getAttribute("src"), you.getAttribute("src"));
     }, 3600);
 
 });
